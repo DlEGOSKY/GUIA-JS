@@ -1,9 +1,15 @@
-function reemplazarPalabra(frase, palabra, nuevaPalabra) {
-    return frase.replace(palabra, nuevaPalabra);
-}
+const readline = require('readline');
 
-let frase = prompt("Ingresa una frase:");
-let palabra = prompt("Ingresa la palabra que quieres reemplazar:");
-let nuevaPalabra = prompt("Ingresa la nueva palabra:");
-let nuevaFrase = reemplazarPalabra(frase, palabra, nuevaPalabra);
-console.log(nuevaFrase);
+const rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout
+});
+
+rl.question("Ingresa una frase: ", function(frase) {
+    rl.question("Ingresa la palabra que quieres reemplazar: ", function(palabra) {
+        rl.question("Ingresa la nueva palabra: ", function(nuevaPalabra) {
+            console.log(frase.replace(palabra, nuevaPalabra));
+            rl.close();
+        });
+    });
+});

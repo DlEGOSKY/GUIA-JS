@@ -1,7 +1,11 @@
-function contarCaracteres(cadena) {
-    return cadena.length;
-}
+const readline = require('readline');
 
-let cadena = prompt("Ingresa una cadena:");
-let cantidad = contarCaracteres(cadena);
-console.log("La cadena tiene " + cantidad + " caracteres.");
+const rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout
+});
+
+rl.question("Ingresa una cadena: ", function(cadena) {
+    console.log("La cadena tiene " + cadena.length + " caracteres.");
+    rl.close();
+});

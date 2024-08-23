@@ -1,8 +1,11 @@
-function contarPalabras(frase) {
-    let palabras = frase.split(" ");
-    return palabras.length;
-}
+const readline = require('readline');
 
-let frase = prompt("Ingresa una frase:");
-let cantidadPalabras = contarPalabras(frase);
-console.log("La frase tiene " + cantidadPalabras + " palabras.");
+const rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout
+});
+
+rl.question("Ingresa una frase: ", function(frase) {
+    console.log("La frase tiene " + frase.split(" ").length + " palabras.");
+    rl.close();
+});

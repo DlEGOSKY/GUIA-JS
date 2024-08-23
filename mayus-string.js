@@ -1,7 +1,11 @@
-function convertirMayusculas(cadena) {
-    return cadena.toUpperCase();
-}
+const readline = require('readline');
 
-let cadena = prompt("Ingresa una cadena:");
-let mayusculas = convertirMayusculas(cadena);
-console.log(mayusculas);
+const rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout
+});
+
+rl.question("Ingresa una cadena: ", function(cadena) {
+    console.log(cadena.toUpperCase());
+    rl.close();
+});

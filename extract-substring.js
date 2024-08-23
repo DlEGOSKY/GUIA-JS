@@ -1,9 +1,15 @@
-function extraerSubcadena(cadena, inicio, fin) {
-    return cadena.substring(inicio, fin);
-}
+const readline = require('readline');
 
-let cadena = prompt("Ingresa una cadena:");
-let inicio = parseInt(prompt("Ingresa la posición de inicio de la subcadena:"));
-let fin = parseInt(prompt("Ingresa la posición final de la subcadena:"));
-let subcadena = extraerSubcadena(cadena, inicio, fin);
-console.log(subcadena);
+const rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout
+});
+
+rl.question("Ingresa una cadena: ", function(cadena) {
+    rl.question("Ingresa la posición de inicio de la subcadena: ", function(inicio) {
+        rl.question("Ingresa la posición final de la subcadena: ", function(fin) {
+            console.log(cadena.substring(parseInt(inicio), parseInt(fin)));
+            rl.close();
+        });
+    });
+});

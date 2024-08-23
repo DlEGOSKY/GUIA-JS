@@ -1,7 +1,11 @@
-function invertirCadena(cadena) {
-    return cadena.split("").reverse().join("");
-}
+const readline = require('readline');
 
-let cadena = prompt("Ingresa una cadena:");
-let invertida = invertirCadena(cadena);
-console.log(invertida);
+const rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout
+});
+
+rl.question("Ingresa una cadena: ", function(cadena) {
+    console.log(cadena.split("").reverse().join(""));
+    rl.close();
+});

@@ -1,8 +1,13 @@
-function saludar(nombre, apellido) {
-    return "Hola, " + nombre + " " + apellido + "!";
-}
+const readline = require('readline');
 
-let nombre = prompt("Ingresa tu nombre:");
-let apellido = prompt("Ingresa tu apellido:");
-let saludo = saludar(nombre, apellido);
-console.log(saludo);
+const rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout
+});
+
+rl.question("Ingresa tu nombre: ", function(nombre) {
+    rl.question("Ingresa tu apellido: ", function(apellido) {
+        console.log("Hola, " + nombre + " " + apellido + "!");
+        rl.close();
+    });
+});
